@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQueryUI - Button</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- Hojas de estilo, Bibliotecas de jQuery y jQueryUI -->
+        <link rel="stylesheet" href="jquery/themes/base/jquery.ui.all.css">
+        <script src="jquery/jquery-1.9.1.js"></script>
+        <script src="jquery/ui/jquery.ui.core.js"></script>
+        <script src="jquery/ui/jquery.ui.widget.js"></script>
+        <script src="jquery/ui/jquery.ui.button.js"></script>
+        <script src="jquery/ui/jquery.ui.position.js"></script>
+        <script src="jquery/ui/jquery.ui.menu.js"></script>
+        <link rel="stylesheet" href="jquery/demos/demos.css">
+        <style>
+            .ui-menu { position: absolute; width: 100px; }
+        </style>
+
+        <script>
+            //Botones básicos
+            $(function() {
+                $("input[type=submit], a.boton, button").button()
+            });
+            $(function() {
+                $(".botonBasico")
+                        .click(function(event) {
+                    event.preventDefault();
+                    alert("Has pulsado un botón básico");
+                }
+                );
+            })
+
+            //Botón radio
+            $(function() {
+                $("#radioButtons").buttonset();
+            });
+
+            //Botón checkbox
+            $(function() {
+                $("#checkboxSet").buttonset();
+                $("#checkboxSolo").button();
+            });
+
+            //Iconos
+            $(function() {
+                $("#btnIcon1").button({
+                    icons: {
+                        primary: "ui-icon-locked"
+                    },
+                    text: false
+                });
+                $("#btnIcon2").button({
+                    icons: {
+                        primary: "ui-icon-locked",
+                    }
+                });
+                $("#btnIcon3").button({
+                    icons: {
+                        primary: "ui-icon-locked",
+                        secondary: "ui-icon-triangle-1-s"
+                    }
+                });
+                $("#btnIcon4").button({
+                    icons: {
+                        secondary: "ui-icon-triangle-1-s"
+                    }
+                });
+                $("#btnIcon5").button({
+                    icons: {
+                        primary: "ui-icon-locked",
+                        secondary: "ui-icon-triangle-1-s"
+                    },
+                    text: false //Texto aparece como texto alternativo
+                });
+            });
+
+            //Desplegable
+            $(function() {
+                $("#desplegableBotonPrincipal")
+                    .button()
+                    .click(function() {
+                        alert("Acción principal");
+                    })
+                    .next() //Siguiente objeto
+                    .button({
+                        text: false,
+                        icons: {
+                            primary: "ui-icon-triangle-1-s"
+                        }
+                    })
+                    .click(function() {
+                        var menu = $(this).parent().next().show().position({
+                            my: "left top",
+                            at: "left bottom",
+                            of: this
+                        });
+                        $(document).one("click", function() {
+                            menu.hide();
+                        });
+                        return false;
+                    })
+                    .parent()
+                    .buttonset()
+                    .next()
+                    .hide()
+                    .menu();
+            });
+            
+            $(function() {
+                $("#desplegableBoton1").click(function() {
+                    alert("Botón 1");
+                });
+                $("#desplegableBoton2").click(function() {
+                    alert("Botón 2");
+                });
+                $("#desplegableBoton3").click(function() {
+                    alert("Botón 3");
+                });
+            });
+
+
+        </script>
+
+    </head>
+    <body>
+        <h1>Button</h1>
+        <p><a href="http://api.jqueryui.com/button/" target="_blank">Ver API</a></p>
+        <p><a href="index.html">Volver atrás</a></p>
+        <hr>
+        <div>
+            <h2>Botones básicos</h2>
+            <button class="botonBasico">Etiqueta &LT;button&GT;</button>
+            <input type="submit" value="input type=&QUOT;submit&QUOT;" class="botonBasico">
+            <a href="#" class="boton botonBasico">Etiqueta &LT;a&GT;&LT;/a&GT;</a>
+        </div>
+        <div>
+            <h2>Radios</h2>
+            <div id="radioButtons">
+                <input type="radio" id="radio1" name="radioButton" /><label for="radio1">Opción 1</label>
+                <input type="radio" id="radio2" name="radioButton" checked="checked" /><label for="radio2">Opción 2</label>
+                <input type="radio" id="radio3" name="radioButton" /><label for="radio3">Opción 3</label>
+            </div>
+        </div>
+        <div>
+            <h2>Checkbox</h2>
+            <div>
+                <input type="checkbox" id="checkboxSolo" name="checkboxSolo" /><label for="checkboxSolo">Opción única</label>
+            </div>
+            <div id="checkboxSet">
+                <input type="checkbox" id="checkbox1" name="checkbox1" /><label for="checkbox1">Opción 1</label>
+                <input type="checkbox" id="checkbox2" name="checkbox2" checked="checked" /><label for="checkbox2">Opción 2</label>
+                <input type="checkbox" id="checkbox3" name="checkbox3" /><label for="checkbox3">Opción 3</label>
+            </div>
+        </div>
+        <div>
+            <h2>Iconos</h2>
+            <a href="http://www.petefreitag.com/cheatsheets/jqueryui-icons/" target="_blank">Listado de iconos</a>
+            <div>
+                <button id="btnIcon1">Un icono y sin texto</button>
+                <button id="btnIcon2">Un icono y texto</button>
+                <button id="btnIcon3">Dos iconos y texto</button>
+                <button id="btnIcon4">Un icono a la derecha y texto</button>
+                <button id="btnIcon5">Dos iconos y sin texto</button>
+            </div>
+        </div>
+        <div>
+            <h2>Desplegable</h2>
+            <div>
+                <div>
+                    <button id="desplegableBotonPrincipal">Acción principal</button>
+                    <button id="desplegableBotonDesplegable">Haz clic para ver mas opciones</button>
+                </div>
+                <ul>
+                    <li><a href="#" id="desplegableBoton1">Opción 1</a></li>
+                    <li><a href="#" id="desplegableBoton2">Opción 2</a></li>
+                    <li><a href="#" id="desplegableBoton3">Opción 3</a></li>
+                </ul>
+            </div>
+        </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </body>
+</html>

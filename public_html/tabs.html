@@ -1,0 +1,129 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQueryUI - Tabs</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- Hojas de estilo, Bibliotecas de jQuery y jQueryUI -->
+        <link rel="stylesheet" href="jquery/themes/base/jquery.ui.all.css">
+        <script src="jquery/jquery-1.9.1.js"></script>
+        <script src="jquery/ui/jquery.ui.core.js"></script>
+        <script src="jquery/ui/jquery.ui.widget.js"></script>
+	<script src="jquery/ui/jquery.ui.mouse.js"></script>
+        <script src="jquery/ui/jquery.ui.sortable.js"></script>
+        <script src="jquery/ui/jquery.ui.tabs.js"></script>
+        <link rel="stylesheet" href="jquery/demos/demos.css">
+        <style>
+            .ui-menu { position: absolute; width: 100px; }
+        </style>
+
+        <script>
+            $(function() {
+                $("#tabsNormal").tabs();
+                
+                $("#tabsMouseOver").tabs({
+                    event: "mouseover"
+                });
+                
+                $("#tabsColapsable").tabs({
+                    collapsible: "true"
+                });
+                
+		var tabsOrdenable = $( "#tabsOrdenable" ).tabs();
+		tabsOrdenable.find( ".ui-tabs-nav" ).sortable({
+			axis: "x",
+			stop: function() {
+				tabs.tabs( "refresh" );
+			}
+		});
+            });
+        </script>
+
+    </head>
+    <body>
+        <h1>Tabs</h1>
+        <p><a href="http://api.jqueryui.com/tabs/" target="_blank">Ver API</a></p>
+        <p><a href="index.html">Volver atrás</a></p>
+        <hr>
+        <div>
+            <h2>Tabs normal</h2>
+            <div id="tabsNormal">
+                <ul>
+                    <li><a href="#tabsNormal-1">Pestaña 1</a></li>
+                    <li><a href="#tabsNormal-2">Pestaña 2</a></li>
+                    <li><a href="#tabsNormal-3">Pestaña 3</a></li>
+                </ul>
+                <div id="tabsNormal-1">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin tempor rhoncus. Aenean a neque eu ante scelerisque hendrerit. Proin sed mauris ac dui iaculis adipiscing sit amet vitae magna. Proin at massa et eros cursus aliquam. Nulla facilisi. Fusce id leo ante, a varius erat. Pellentesque pharetra ultrices hendrerit. Proin in neque justo, et feugiat sapien. Integer tristique dapibus adipiscing. Nullam id tincidunt libero. Phasellus vehicula lectus quis ligula mattis placerat vel a mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean sit amet sem ut ligula luctus condimentum id vel elit. Duis eros enim, varius nec blandit nec, ultricies nec elit. Etiam vel odio a sem gravida accumsan et in est.</p>
+                </div>
+                <div id="tabsNormal-2">
+                    <p>Aenean et ante massa. Nunc ut odio eget felis dignissim molestie a sed dolor. Sed nec leo a ipsum dignissim pretium. Ut ut felis orci. Proin tincidunt ultrices pretium. Morbi tempor mollis mauris vel lacinia. Phasellus dictum semper tellus nec porta. Donec ac massa justo, porta tincidunt augue. Aenean vehicula nisi semper massa eleifend at bibendum lorem fermentum. Aenean porttitor porttitor nunc, quis adipiscing enim gravida vitae. Phasellus molestie urna ut mi tincidunt quis congue urna fermentum. Nunc eget quam quam. Phasellus sit amet dictum orci. Suspendisse ut nisl mi. Curabitur blandit suscipit risus ac elementum.</p>
+                </div>
+                <div id="tabsNormal-3">
+                    <p>Suspendisse potenti. Donec pulvinar sagittis molestie. Morbi eget sodales purus. Etiam laoreet, nulla pellentesque viverra dapibus, tortor orci consectetur felis, non gravida felis libero sed lectus. Suspendisse potenti. Pellentesque blandit, augue quis adipiscing ullamcorper, sapien magna tempus quam, ut semper tellus nisi at diam. Donec rhoncus quam sit amet diam interdum scelerisque. Phasellus sed mauris mi, ac pharetra leo. Vivamus dignissim, risus non tincidunt fringilla, justo nibh tempus ipsum, id rutrum orci orci at diam. Suspendisse et sapien neque, sed scelerisque felis. Proin luctus quam risus. Vivamus vestibulum tellus porta arcu ornare a elementum urna facilisis.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Tabs &quot;mouse over&quot;</h2>
+            <div id="tabsMouseOver">
+                <ul>
+                    <li><a href="#tabsMouseOver-1">Pestaña 1</a></li>
+                    <li><a href="#tabsMouseOver-2">Pestaña 2</a></li>
+                    <li><a href="#tabsMouseOver-3">Pestaña 3</a></li>
+                </ul>
+                <div id="tabsMouseOver-1">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin tempor rhoncus. Aenean a neque eu ante scelerisque hendrerit. Proin sed mauris ac dui iaculis adipiscing sit amet vitae magna. Proin at massa et eros cursus aliquam. Nulla facilisi. Fusce id leo ante, a varius erat. Pellentesque pharetra ultrices hendrerit. Proin in neque justo, et feugiat sapien. Integer tristique dapibus adipiscing. Nullam id tincidunt libero. Phasellus vehicula lectus quis ligula mattis placerat vel a mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean sit amet sem ut ligula luctus condimentum id vel elit. Duis eros enim, varius nec blandit nec, ultricies nec elit. Etiam vel odio a sem gravida accumsan et in est.</p>
+                </div>
+                <div id="tabsMouseOver-2">
+                    <p>Aenean et ante massa. Nunc ut odio eget felis dignissim molestie a sed dolor. Sed nec leo a ipsum dignissim pretium. Ut ut felis orci. Proin tincidunt ultrices pretium. Morbi tempor mollis mauris vel lacinia. Phasellus dictum semper tellus nec porta. Donec ac massa justo, porta tincidunt augue. Aenean vehicula nisi semper massa eleifend at bibendum lorem fermentum. Aenean porttitor porttitor nunc, quis adipiscing enim gravida vitae. Phasellus molestie urna ut mi tincidunt quis congue urna fermentum. Nunc eget quam quam. Phasellus sit amet dictum orci. Suspendisse ut nisl mi. Curabitur blandit suscipit risus ac elementum.</p>
+                </div>
+                <div id="tabsMouseOver-3">
+                    <p>Suspendisse potenti. Donec pulvinar sagittis molestie. Morbi eget sodales purus. Etiam laoreet, nulla pellentesque viverra dapibus, tortor orci consectetur felis, non gravida felis libero sed lectus. Suspendisse potenti. Pellentesque blandit, augue quis adipiscing ullamcorper, sapien magna tempus quam, ut semper tellus nisi at diam. Donec rhoncus quam sit amet diam interdum scelerisque. Phasellus sed mauris mi, ac pharetra leo. Vivamus dignissim, risus non tincidunt fringilla, justo nibh tempus ipsum, id rutrum orci orci at diam. Suspendisse et sapien neque, sed scelerisque felis. Proin luctus quam risus. Vivamus vestibulum tellus porta arcu ornare a elementum urna facilisis.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Tabs colapsable</h2>
+            <div id="tabsColapsable">
+                <ul>
+                    <li><a href="#tabsColapsable-1">Pestaña 1</a></li>
+                    <li><a href="#tabsColapsable-2">Pestaña 2</a></li>
+                    <li><a href="#tabsColapsable-3">Pestaña 3</a></li>
+                </ul>
+                <div id="tabsColapsable-1">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin tempor rhoncus. Aenean a neque eu ante scelerisque hendrerit. Proin sed mauris ac dui iaculis adipiscing sit amet vitae magna. Proin at massa et eros cursus aliquam. Nulla facilisi. Fusce id leo ante, a varius erat. Pellentesque pharetra ultrices hendrerit. Proin in neque justo, et feugiat sapien. Integer tristique dapibus adipiscing. Nullam id tincidunt libero. Phasellus vehicula lectus quis ligula mattis placerat vel a mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean sit amet sem ut ligula luctus condimentum id vel elit. Duis eros enim, varius nec blandit nec, ultricies nec elit. Etiam vel odio a sem gravida accumsan et in est.</p>
+                </div>
+                <div id="tabsColapsable-2">
+                    <p>Aenean et ante massa. Nunc ut odio eget felis dignissim molestie a sed dolor. Sed nec leo a ipsum dignissim pretium. Ut ut felis orci. Proin tincidunt ultrices pretium. Morbi tempor mollis mauris vel lacinia. Phasellus dictum semper tellus nec porta. Donec ac massa justo, porta tincidunt augue. Aenean vehicula nisi semper massa eleifend at bibendum lorem fermentum. Aenean porttitor porttitor nunc, quis adipiscing enim gravida vitae. Phasellus molestie urna ut mi tincidunt quis congue urna fermentum. Nunc eget quam quam. Phasellus sit amet dictum orci. Suspendisse ut nisl mi. Curabitur blandit suscipit risus ac elementum.</p>
+                </div>
+                <div id="tabsColapsable-3">
+                    <p>Suspendisse potenti. Donec pulvinar sagittis molestie. Morbi eget sodales purus. Etiam laoreet, nulla pellentesque viverra dapibus, tortor orci consectetur felis, non gravida felis libero sed lectus. Suspendisse potenti. Pellentesque blandit, augue quis adipiscing ullamcorper, sapien magna tempus quam, ut semper tellus nisi at diam. Donec rhoncus quam sit amet diam interdum scelerisque. Phasellus sed mauris mi, ac pharetra leo. Vivamus dignissim, risus non tincidunt fringilla, justo nibh tempus ipsum, id rutrum orci orci at diam. Suspendisse et sapien neque, sed scelerisque felis. Proin luctus quam risus. Vivamus vestibulum tellus porta arcu ornare a elementum urna facilisis.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Tabs ordenables</h2>
+            <div id="tabsOrdenable">
+                <ul>
+                    <li><a href="#tabsOrdenable-1">Pestaña 1</a></li>
+                    <li><a href="#tabsOrdenable-2">Pestaña 2</a></li>
+                    <li><a href="#tabsOrdenable-3">Pestaña 3</a></li>
+                </ul>
+                <div id="tabsOrdenable-1">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin tempor rhoncus. Aenean a neque eu ante scelerisque hendrerit. Proin sed mauris ac dui iaculis adipiscing sit amet vitae magna. Proin at massa et eros cursus aliquam. Nulla facilisi. Fusce id leo ante, a varius erat. Pellentesque pharetra ultrices hendrerit. Proin in neque justo, et feugiat sapien. Integer tristique dapibus adipiscing. Nullam id tincidunt libero. Phasellus vehicula lectus quis ligula mattis placerat vel a mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean sit amet sem ut ligula luctus condimentum id vel elit. Duis eros enim, varius nec blandit nec, ultricies nec elit. Etiam vel odio a sem gravida accumsan et in est.</p>
+                </div>
+                <div id="tabsOrdenable-2">
+                    <p>Aenean et ante massa. Nunc ut odio eget felis dignissim molestie a sed dolor. Sed nec leo a ipsum dignissim pretium. Ut ut felis orci. Proin tincidunt ultrices pretium. Morbi tempor mollis mauris vel lacinia. Phasellus dictum semper tellus nec porta. Donec ac massa justo, porta tincidunt augue. Aenean vehicula nisi semper massa eleifend at bibendum lorem fermentum. Aenean porttitor porttitor nunc, quis adipiscing enim gravida vitae. Phasellus molestie urna ut mi tincidunt quis congue urna fermentum. Nunc eget quam quam. Phasellus sit amet dictum orci. Suspendisse ut nisl mi. Curabitur blandit suscipit risus ac elementum.</p>
+                </div>
+                <div id="tabsOrdenable-3">
+                    <p>Suspendisse potenti. Donec pulvinar sagittis molestie. Morbi eget sodales purus. Etiam laoreet, nulla pellentesque viverra dapibus, tortor orci consectetur felis, non gravida felis libero sed lectus. Suspendisse potenti. Pellentesque blandit, augue quis adipiscing ullamcorper, sapien magna tempus quam, ut semper tellus nisi at diam. Donec rhoncus quam sit amet diam interdum scelerisque. Phasellus sed mauris mi, ac pharetra leo. Vivamus dignissim, risus non tincidunt fringilla, justo nibh tempus ipsum, id rutrum orci orci at diam. Suspendisse et sapien neque, sed scelerisque felis. Proin luctus quam risus. Vivamus vestibulum tellus porta arcu ornare a elementum urna facilisis.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

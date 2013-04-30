@@ -1,0 +1,76 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQueryUI - Menu</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- Hojas de estilo, Bibliotecas de jQuery y jQueryUI -->
+        <link rel="stylesheet" href="jquery/themes/base/jquery.ui.all.css">
+        <script src="jquery/jquery-1.9.1.js"></script>
+        <script src="jquery/ui/jquery.ui.core.js"></script>
+        <script src="jquery/ui/jquery.ui.widget.js"></script>
+        <script src="jquery/ui/jquery.ui.position.js"></script>
+        <script src="jquery/ui/jquery.ui.menu.js"></script>
+        <link rel="stylesheet" href="jquery/demos/demos.css">
+
+        <script>
+            $(function() {
+                $("#menu").menu();
+            });
+            $(function() {
+                $("#menuAlert").click(function() {
+                    alert("Hola. Soy un alert");
+                })
+                $("li.ui-state-disabled").click(function() {
+                    alert("Esta opción está deshabilitada");
+                })
+            });
+        </script>
+        <style>
+            .ui-menu { width: 250px; }
+        </style>
+    </head>
+    <body>
+        <h1>Menu</h1>
+        <p><a href="http://api.jqueryui.com/menu/" target="_blank">Ver API</a></p>
+        <p><a href="http://www.petefreitag.com/cheatsheets/jqueryui-icons/" target="_blank">Listado de iconos</a></p>
+        <p><a href="index.html">Volver atrás</a></p>
+        <hr>
+        <div>
+            <ul id="menu">
+                <li><a href="#">Enlace normal</a></li>
+                <li class="ui-state-disabled" id="menuDeshabilitado"><a href="#">Enlace deshabilitado</a></li>
+                <li><a href="#" id="menuAlert">Aquí hay un alert</a></li>
+                <li>
+                    <a href="#">Esto es un desplegable</a>
+                    <ul>
+                        <li><a href="#">Opción 1</a></li>
+                        <li><a href="#">Opción 2</a></li>
+                        <li><a href="#">Opción 3</a></li>
+                    </ul>
+                </li>
+                <li class="ui-state-disabled">
+                    <a href="#">Esto es un desplegable deshabilitado</a>
+                    <ul>
+                        <li><a href="#">Opción 1</a></li>
+                        <li><a href="#">Opción 2</a></li>
+                        <li><a href="#">Opción 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><span class="ui-icon ui-icon-folder-open"></span>Enlace con un icono</a></li>
+                <li>
+                    <a href="#"><span class="ui-icon ui-icon-help"></span>Desplegable con icono</a>
+                    <ul>
+                        <li><a href="#"><span class="ui-icon ui-icon-shuffle"></span>Opción 1</a></li>
+                        <li class="ui-state-disabled"><a href="#"><span class="ui-icon ui-icon-extlink"></span>Opción 2</a></li>
+                        <li><a href="#"><span class="ui-icon ui-icon-refresh"></span>Opción 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

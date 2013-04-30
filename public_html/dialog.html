@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQueryUI - Dialog</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- Hojas de estilo, Bibliotecas de jQuery y jQueryUI -->
+        <link rel="stylesheet" href="jquery/themes/base/jquery.ui.all.css">
+        <script src="jquery/jquery-1.9.1.js"></script>
+        <script src="jquery/ui/jquery.ui.core.js"></script>
+        <script src="jquery/ui/jquery.ui.widget.js"></script>
+        <script src="jquery/ui/jquery.ui.mouse.js"></script>
+        <script src="jquery/ui/jquery.ui.draggable.js"></script>
+        <script src="jquery/ui/jquery.ui.position.js"></script>
+        <script src="jquery/ui/jquery.ui.resizable.js"></script>
+        <script src="jquery/ui/jquery.ui.button.js"></script>
+        <script src="jquery/ui/jquery.ui.dialog.js"></script>
+        <link rel="stylesheet" href="jquery/demos/demos.css">
+
+        <script>
+            $(function() {
+                $("#abrirDialogo").click(
+                        function() {
+                            $("#dialog").dialog({
+                                //Opciones
+                                title: "Registro",
+                                modal: true, //Diálogo modal
+                                height: 250,
+                                width: 300,
+                                draggable: true,
+                                resizable: true,
+                                position: "left top",
+                                //Botones
+                                buttons: [
+                                    {
+                                        text: "Aceptar",
+                                        click: function(){
+                                            var nombre = document.getElementById("formu1Nombre").value;
+                                            var apellidos = document.getElementById("formu1Apellidos").value;
+                                            var socio = "";
+                                            (document.getElementById("formu1Socio").checked?socio = "Es socio":socio = "No es socio");
+                                            alert("Enviar el formulario.\nNombre: "+nombre+"\nApellidos: "+apellidos+"\n"+socio);
+                                            $(this).dialog("close");
+                                        }
+                                    },
+                                    {
+                                        text: "Cancelar",
+                                        click: function() {
+                                            $(this).dialog("close");
+                                        }
+                                    }
+                                ],
+                                //Ejemplo de evento
+                                drag: function(event, ui){ //Parámetros obligatorios
+                                    var dialogo = $(this).offset();
+                                    $("#posDialog").html("("+dialogo.top+","+dialogo.left+")");
+                                }
+                            });
+                        }
+                );
+            });
+        </script>
+
+    </head>
+    <body>
+        <h1>Dialog</h1>
+        <p><a href="http://api.jqueryui.com/dialog/" target="_blank">Ver API</a></p>
+        <p><a href="index.html">Volver atrás</a></p>
+        <hr>
+        <a href="#" id="abrirDialogo">Abrir dialog</a>
+        <p>Posición dialog: <span id="posDialog"></span></p>
+        <div id="dialog" style="display:none;">
+            <form name="formu1" action="#">
+                <p>Introduzca usuario y contraseña</p>
+                <p>
+                    <label>Nombre: <input type="text" name="nombre" id="formu1Nombre"/></label>
+                </p>
+                <p>
+                    <label>Apellidos: <input type="text" name="apellidos" id="formu1Apellidos"/></label>
+                </p>
+                <p>
+                    <label>Socio: <input type="checkbox" name="socio" id="formu1Socio"/></label>
+                </p>
+            </form>
+        </div>
+
+    </body>
+</html>
